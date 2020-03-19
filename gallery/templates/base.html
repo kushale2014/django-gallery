@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Галерея: {% block title %}{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/lightbox.css' %}">
+</head>
+<body>
+
+<div class="wrapper">
+	
+    <div class="gallery">
+	
+        {% block content %}{% endblock %}
+		<div class="clear"></div>
+
+	</div>
+
+</div>
+
+{% block ajax %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %} {{ a.title }} {% endblock title %}
+
+{% block content %}
+<div class="menu"><a href="{% url 'albums:index' %}">&laquo; Вернуться</a></div><br>
+<h2>{{ a.title }}</h2>
+<p> {{ a.description }} </p>
+<hr>
+<br>
+
+<div id="album_items">
+    {% include 'detail_ajax.html' %}
+</div>
+<hr>
+{% endblock content %}
+
+{% load static %}
+{% block ajax %}
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="{% static 'js/lightbox-2.6.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/scripts.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %} Список альбомов {% endblock %}
+
+{% block content %}
+{% if list_albums %}
+    {% for a in list_albums %}
+    <div class="item">
+        <div>
+            <a href="{% url 'albums:detail' a.id %}">
+                <p>{{ a.title }}</p><hr><br>
+                <p>{{ a.description }}</p>
+                
+            </a>
+        </div>
+    </div>
+    {% endfor %}
+{% else %}
+    Альбомы не найдены
+{% endif %}
+{% endblock %}

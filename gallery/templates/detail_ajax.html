@@ -1,0 +1,40 @@
+{% if page_obj  %}
+    {% for i in page_obj  %}
+    <div class="item">
+        <div>
+            <a data-lightbox="lightbox" href="{{ i.image_name.url }}">
+                <img class="front" src="{{ i.image_name.url }}" width="150" height="100" alt="">
+                <span class="back">{{ i.description }}</span>
+            </a>
+        </div>
+    </div>
+    {% endfor %}
+{% else %}
+    Альбом пустой. 
+{% endif %}
+<div class="clear"></div>
+{% if page_obj.paginator.num_pages > 1 %}
+<div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a class='nav-link' href="?page=1">&laquo; Первый</a>
+            <a class='nav-link' href="?page={{ page_obj.previous_page_number }}">предыд.</a>
+        {% else %}
+            <a style="cursor: not-allowed; opacity: 0.5;">&laquo; Первый</a>
+            <a style="cursor: not-allowed; opacity: 0.5;">предыд.</a>
+        {% endif %}
+
+        <span class="current">
+            Стр. {{ page_obj.number }} из {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+            <a class='nav-link' href="?page={{ page_obj.next_page_number }}">след.</a>
+            <a class='nav-link' href="?page={{ page_obj.paginator.num_pages }}">Последний &raquo;</a>
+        {% else %}
+            <a style="cursor: not-allowed; opacity: 0.5;">след.</a>
+            <a style="cursor: not-allowed; opacity: 0.5;">Последний &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+{% endif %}

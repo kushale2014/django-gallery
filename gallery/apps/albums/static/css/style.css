@@ -1,0 +1,145 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+.wrapper{
+	width: 555px;
+	margin: 20px auto;
+	background: #f0f0f0;
+	padding: 20px 10px 20px 20px;
+	box-shadow: 0 0 5px rgba(0, 0, 0, .3);
+	overflow: hidden;
+}
+.item{
+	background: #fff;
+	width: 170px;
+	height: 130px;
+	float: left;
+	text-align: center;
+	box-shadow: 0 0 5px rgba(0, 0, 0, .4);
+	margin: 0 15px 15px 0;
+}
+.item > div{
+	position: relative;
+	top: 50%;
+	-ms-transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	transform: translateY(-50%);
+	cursor: pointer;
+}
+.front{
+	transition: all .5s;
+	position: absolute;
+	/*-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;*/
+}
+.front:hover{
+	box-shadow: 0 0 10px #000;
+}
+
+.back{
+	width: 130px;
+	height: 80px;
+	display: inline-block;
+	-webkit-transform: rotateX(180deg);
+	transform: rotateX(180deg);
+	/*-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;*/
+	background: #ccc;
+	color: #000;
+	transition: all .5s;
+	padding: 10px;
+	text-align: left;
+	opacity: 0;
+}
+
+.item > div:hover .front{
+	-webkit-transform: rotateX(180deg);
+	transform: rotateX(180deg);
+}
+.item > div:hover .back{
+	-webkit-transform: rotateX(0deg);
+	transform: rotateX(0deg);
+	opacity: 1;
+}
+
+.clear{clear: both;}
+
+/* Pagination */
+.pagination{
+	margin: 20px;
+	text-align: center;
+}
+.pagination a, .menu a{
+	border: 1px solid #ddd;
+	padding: 6px 12px;
+	text-decoration: none;
+	background: #fff;
+	color: #428bca;
+}
+.pagination a:nth-child(even){
+	border-left: none;
+	border-right: none;
+}
+.pagination a:first-child{
+	border-top-left-radius: 4px;
+	border-bottom-left-radius: 4px;
+}
+.pagination a:last-child{
+	border-top-right-radius: 4px;
+	border-bottom-right-radius: 4px;
+	border-right: 1px solid #ddd;
+}
+.pagination a:hover{
+	background: #eee;
+}
+.pagination > a.nav-active{
+	background: #428bca;
+	color: #fff;
+	border-color: #428bca;
+}
